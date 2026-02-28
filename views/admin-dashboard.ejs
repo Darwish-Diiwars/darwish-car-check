@@ -1,0 +1,31 @@
+<h1>Admin Dashboard</h1>
+
+<h3>Total Revenue: <%= totalRevenue %> EGP</h3>
+<a href="/admin/logout">Logout</a>
+<hr>
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th>Car</th>
+  <th>Date</th>
+  <th>Time</th>
+  <th>Price</th>
+  <th>Status</th>
+  <th>Actions</th>
+</tr>
+
+<% bookings.forEach(b => { %>
+<tr>
+  <td><%= b.fullName %></td>
+  <td><%= b.brand %> <%= b.model %></td>
+  <td><%= b.slotDate %></td>
+  <td><%= b.slotTime %></td>
+  <td><%= b.totalPrice %></td>
+  <td><%= b.status %></td>
+  <td>
+    <a href="/admin/confirm/<%= b._id %>">Confirm</a> |
+    <a href="/admin/cancel/<%= b._id %>">Cancel</a>
+  </td>
+</tr>
+<% }) %>
+</table>

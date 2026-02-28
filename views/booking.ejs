@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Car Check</title>
+</head>
+<body>
+
+<h1>Book Car Inspection</h1>
+
+<form action="/book" method="POST">
+
+    <h3>Car Type</h3>
+    <select name="carType" required>
+        <option value="used">Used Car (1000 EGP)</option>
+        <option value="new">New Car (1200 EGP)</option>
+    </select>
+
+    <h3>Car Info</h3>
+    <input type="text" name="brand" placeholder="Brand" required><br>
+    <input type="text" name="model" placeholder="Model" required><br>
+    <input type="number" name="year" placeholder="Year"><br>
+    <input type="number" name="kilometer" placeholder="Kilometer"><br>
+
+    <h3>Address</h3>
+    <input type="text" name="governorate" placeholder="Governorate"><br>
+    <input type="text" name="area" placeholder="Area"><br>
+    <input type="text" name="address" placeholder="Full Address"><br>
+
+    <h3>Contact Info</h3>
+    <input type="text" name="fullName" placeholder="Full Name" required><br>
+    <input type="text" name="phone" placeholder="Phone" required><br>
+    <input type="text" name="whatsapp" placeholder="WhatsApp"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+
+    <h3>Extra</h3>
+    <label>
+        <input type="checkbox" name="uvCheck">
+        Add UV Check (+600 EGP)
+    </label><br><br>
+    <h3>Select Time Slot</h3>
+
+    <h3>Select Time Slot</h3>
+
+    <% if (slots && slots.length > 0) { %>
+        <select name="slotId" required>
+            <% slots.forEach(slot => { %>
+                <option value="<%= slot._id %>">
+                    <%= slot.date %> - <%= slot.time %>
+                </option>
+            <% }) %>
+        </select>
+    <% } else { %>
+        <p>No available slots right now</p>
+    <% } %>
+
+    <br><br>
+
+    <button type="submit">Submit Booking</button>
+
+</form>
+
+</body>
+</html>

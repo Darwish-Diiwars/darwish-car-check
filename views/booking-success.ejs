@@ -1,0 +1,20 @@
+<h1>Booking Submitted Successfully ✅</h1>
+
+<p>Thank you <strong><%= fullName %></strong></p>
+
+<p>Your inspection is scheduled for:</p>
+<p><strong><%= date %> at <%= time %></strong></p>
+
+<p>Total Price: <%= totalPrice %> EGP</p>
+
+<br><br>
+
+<%
+  const message = `Hello, I just booked a car inspection for ${date} at ${time}. My name is ${fullName}. Total price: ${totalPrice} EGP.`;
+  const whatsappNumber = "201018921914";
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+%>
+
+<a href="<%= whatsappLink %>" target="_blank">
+  Confirm via WhatsApp
+</a>
